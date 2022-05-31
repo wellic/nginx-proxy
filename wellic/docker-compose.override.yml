@@ -6,7 +6,7 @@ services:
     # - https://github.com/nginxproxy/nginx-proxy
     # - https://github.com/wellic/dinghy-http-proxy
     # - https://github.com/codekitchen/dinghy-http-proxy
-    
+
     image: nginxproxy/nginx-proxy
     container_name: http-proxy
     privileged: true
@@ -25,6 +25,6 @@ services:
     expose:
       - "8000"
     environment:
-      - VIRTUAL_HOST=whoami.local
+      - VIRTUAL_HOST=whoami.docker
       - VIRTUAL_PORT=8000
 
