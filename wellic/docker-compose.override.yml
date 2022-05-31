@@ -1,12 +1,8 @@
 version: '2'
+
 services:
+
   http-proxy:
-    # Details: 
-    # - https://github.com/wellic/nginx-proxy
-    # - https://github.com/nginxproxy/nginx-proxy
-    # - https://github.com/wellic/dinghy-http-proxy
-    # - https://github.com/codekitchen/dinghy-http-proxy
-    
     image: nginxproxy/nginx-proxy
     container_name: http-proxy
     privileged: true
@@ -22,6 +18,8 @@ services:
 
   whoami:
     image: jwilder/whoami
+    depends_on:
+      - "http-proxy"
     expose:
       - "8000"
     environment:
@@ -29,3 +27,8 @@ services:
       - VIRTUAL_PORT=8000
 
 
+# Details: 
+# - https://github.com/nginxproxy/nginx-proxy
+# - https://github.com/wellic/nginx-proxy/tree/main/wellic
+# - https://github.com/codekitchen/dinghy-http-proxy
+# - https://github.com/codekitchen/dinghy-http-proxy
